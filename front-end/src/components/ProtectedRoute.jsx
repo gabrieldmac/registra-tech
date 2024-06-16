@@ -5,11 +5,14 @@ import { REFRESH_TOKEN, ACCESS_TOKEN } from '../constants'
 import { useEffect, useState } from 'react'
 
 function ProtectedRoute({ children }) {
+
     const [isAuthorized, setIsAuthorized] = useState(null)
 
     useEffect(() => {
         auth().catch(() => setIsAuthorized(false))
     }, [])
+
+
 
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN)
@@ -33,6 +36,7 @@ function ProtectedRoute({ children }) {
     }
 
     const auth = async () => {
+        console.log(children.props)
         const token = localStorage.getItem(ACCESS_TOKEN)
         if (!token) {
             setIsAuthorized(false)
@@ -54,6 +58,7 @@ function ProtectedRoute({ children }) {
         return <div>Loading...</div>
     }
 
+   
     return isAuthorized ? children : <Navigate to={'/login'} />
 
 }
