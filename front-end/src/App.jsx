@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Notes from "./pages/Notes";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { ThemeProvider, createTheme } from "@mui/material";
 
 function LogOut() {

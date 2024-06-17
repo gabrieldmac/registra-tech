@@ -119,6 +119,7 @@ function Navbar() {
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <ProtectedRoute>
             <Button
               component={Link}
               to={"/"}
@@ -135,6 +136,8 @@ function Navbar() {
             >
               Notes
             </Button>
+            
+          </ProtectedRoute>
           </Box>
 
           <ProtectedRoute>

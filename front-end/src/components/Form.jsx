@@ -2,15 +2,28 @@ import { useState } from "react";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-import Form from 'react-bootstrap/Form' ;
-import Button from 'react-bootstrap/Button';
+import {
+  Container,
+  Box,
+  Button,
+  Typography,
+  FormControlLabel,
+  Checkbox,
+  Avatar,
+  TextField,
+  Grid,
+  Link
+} from "@mui/material";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+
+
 
 function FormDefault({ route, method }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const name = method === "login" ? "Login" : "Register";
+  const name = method === "login" ? "Entrar" : "Cadastrar-se";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,20 +46,79 @@ function FormDefault({ route, method }) {
   return (
     <>
 
-    <Form onSubmit={handleSubmit}>
-      <h1>{name}</h1>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="name@example.com" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-        <Form.Label>Example textarea</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password}
-          onChange={(e) => setPassword(e.target.value)} />
-      </Form.Group>
-      <Button type="submit">{name}</Button>
-    </Form>
- 
+      <Container component="main" maxWidth="xs">
+        
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+           {name}
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="user"
+              label="Usuário"
+              name="user"
+              autoComplete="user"
+              autoFocus
+              value={username} onChange={(e) => setUsername(e.target.value)}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Senha"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password} onChange={(e) => setPassword(e.target.value)}
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Mantenha-me conectado"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Entrar
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Esqueceu a senha?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Faça seu cadastro"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+
+
+
+
+
+
+
 
       
     </>

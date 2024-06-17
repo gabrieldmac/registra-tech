@@ -6,7 +6,7 @@ function Login() {
     <div>
       <Navbar />
       <FormDefault route="/api/token/" method="login" />;
-      <h3>To register please contact your admin</h3>
+      
     </div>
   );
 }
