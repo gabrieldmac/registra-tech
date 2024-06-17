@@ -171,7 +171,7 @@ function Navbar() {
                   <Typography textAlign="center">Notes</Typography>
                 </MenuItem>
                 <MenuItem component={Link} to={"/logout"}>
-                  <Typography textAlign="center">logout</Typography>
+                  <Typography textAlign="center">Sair</Typography>
                 </MenuItem>
              </Menu>
           </Box>

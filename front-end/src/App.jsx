@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Notes from "./pages/Notes";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 
 function LogOut() {
   localStorage.clear();
@@ -24,6 +24,9 @@ const theme = createTheme({
     },
     secondary: {
       main: '#35B2D2'
+    },
+    background: {
+      default: "#EEEEEE"
     }
   }
 })
@@ -31,6 +34,7 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <BrowserRouter>
         <Routes>
           <Route
