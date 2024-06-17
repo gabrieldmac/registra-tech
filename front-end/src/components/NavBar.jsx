@@ -53,7 +53,7 @@ function Navbar() {
             }}
           >
             <Link to="/">
-              <img src="public/logorgtech.png" alt="logo" width="50x" />
+              <img src="logorgtech.png" alt="logo" width="50x" />
             </Link>
           </Typography>
 
@@ -115,7 +115,7 @@ function Navbar() {
             }}
           >
             <Link to="/">
-              <img src="public/logorgtech.png" alt="logo" width="50x" />
+              <img src="logorgtech.png" alt="logo" width="50x" />
             </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
